@@ -62,6 +62,10 @@ export async function fetchLatestInvoices() {
 
 export async function fetchCardData() {
   noStore();
+
+  console.log('Fetching card data...');
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   try {
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate
@@ -78,6 +82,8 @@ export async function fetchCardData() {
       customerCountPromise,
       invoiceStatusPromise,
     ]);
+
+    console.log('Card fetch completed after 2 seconds.');
 
     const numberOfInvoices = Number(data[0].rows[0].count ?? '0');
     const numberOfCustomers = Number(data[1].rows[0].count ?? '0');
