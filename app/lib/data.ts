@@ -187,6 +187,9 @@ export async function fetchInvoiceById(id: string) {
   }
 }
 
+/**
+ * Grabs all the customers from the database.
+ */
 export async function fetchCustomers() {
   noStore();
   try {
